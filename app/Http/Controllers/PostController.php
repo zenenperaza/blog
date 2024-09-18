@@ -7,11 +7,23 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function index(){
-        return "Hola desde la pagina de Post";
+
+        $posts = [
+                ['titulo' => 'Mi titulo uno',
+                'contenido' => 'Mi contenido'],
+                ['titulo' => 'Mi titulo dos',
+                'contenido' => 'Mi contenido dos'],
+                ['titulo' => 'Mi titulo tres',
+                'contenido' => 'Mi contenido tres'],            
+            ];
+
+        // $posts = [];
+
+        return view('posts.index', compact('posts'));
     }
 
     public function create(){
-        return "Hola desde la pagina de Crear Post";
+        return view('posts.create');
     }
 
     public function store(){
@@ -19,11 +31,11 @@ class PostController extends Controller
     }
 
     public function show($post){
-        return "Se mostrara el post $post";
+        return view('posts.show', compact('post'));
     }
 
     public function edit($post){
-        return "Se mostrara el form para editar el post ";
+        return view('posts.edit', compact('post'));
     }
 
     public function update($post){

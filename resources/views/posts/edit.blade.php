@@ -1,0 +1,1 @@
+<h1>Aqui se mostrara para editar el post: <?php echo $post ?></h1>

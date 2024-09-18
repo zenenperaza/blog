@@ -6,21 +6,21 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class);
 
-Route::controller(PostController::class)->group(function(){
+Route::prefix('posts')->name('posts.')->controller(PostController::class)->group(function(){
 
-    Route::get('/posts', 'index')->name('post.index');
+    Route::get('/', 'index')->name('index');
 
-    Route::get('/posts/create',  'create')->name('post.create');
+    Route::get('/create',  'create')->name('create');
 
-    Route::post('/posts', 'store')->name('post.store');
+    Route::post('/', 'store')->name('store');
 
-    Route::get('/posts/{post}', 'show')->name('post.show');
+    Route::get('/{post}', 'show')->name('show');
 
-    Route::get('/posts/{post}/edit', 'edit')->name('post.edit');
+    Route::get('/{post}/edit', 'edit')->name('edit');
 
-    Route::put('/posts/{post}', 'update')->name('post.update');
+    Route::put('/{post}', 'update')->name('update');
 
-    Route::delete('/posts/{post}', 'destroy')->name('post.destroy');
+    Route::delete('/{post}', 'destroy')->name('destroy');
 
 });
 
